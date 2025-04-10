@@ -1,44 +1,44 @@
 import "bootstrap";
 import "./style.css";
 
-
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
-window.onload = function() {
-  const numbers = ["A","2","4","6","8","10","J","K","Q"];
-  const simbols = ["Diamonds", "Spades", "Hearts", "Clubs"];
+window.onload = function () {
+  const numbers = ["A", "2", "4", "6", "8", "10", "J", "K", "Q"];
+  const symbols = ["♦", "♥", "♠", "♣"];
 
-
-
-
-//generamos un numero aleatorio para el array numérico rojo
-  const number = Math.floor(Math.random()* numbers.length );
-//guardamos el numero aleatorio en una constante
+  // Generamos un número aleatorio del array de números
+  const number = Math.floor(Math.random() * numbers.length);
   const randomNumberRoullette = numbers[number];
 
+  // Generamos un símbolo aleatorio
+  const symbol = Math.floor(Math.random() * symbols.length);
+  const randomSymbol = symbols[symbol];
 
-//generamos un aleatorio para los simbolos
-  const symbol = Math.floor(Math.random()* simbols.length );
-//guardamos el simbolo aleatorio en una constante
-  const randomSymbol = simbols[symbol];
-  
+  // Capturamos los elementos del DOM
+  const topEl = document.getElementById("num-top");
+  const cardEl = document.getElementById("num-card");
+  const bottomEl = document.getElementById("num-bottom");
 
-//aplicamos los numeros y simbolos random a la targeta
-document.getElementById("num-top").innerText = randomSymbol;
-document.getElementById("num-card").innerText = randomNumberRoullette;
-document.getElementById("num-bottom").innerText = randomSymbol;
+  // Aplicamos los valores a la carta
+  topEl.innerText = randomSymbol;
+  cardEl.innerText = randomNumberRoullette;
+  bottomEl.innerText = randomSymbol;
 
- 
-//si el numero generado esta dentro del array...lo devuelve rojo, el resto será negro
-function getSuiteClass(simbols) {
-  switch (simbols) {
-    case "Diamonds": return "suit-diamonds";
-    case "Spades": return "suit-spades";
-    case "Hearts": return "suit-hearts";
-    case "Clubs": return "suit-clubs";
+  // Aplicamos el color
+  getColorBitch(randomSymbol, topEl, cardEl, bottomEl);
+
+  // Función que define el color según el símbolo
+  function getColorBitch(symbol, topEl, cardEl, bottomEl) {
+    if (symbol === "♦" || symbol === "♥") {
+      topEl.style.color = "red";
+      cardEl.style.color = "red";
+      bottomEl.style.color = "red";
+    } else {
+      topEl.style.color = "black";
+      cardEl.style.color = "black";
+      bottomEl.style.color = "black";
+    }
   }
-}
-
-
 };

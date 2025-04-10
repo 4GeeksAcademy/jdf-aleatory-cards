@@ -1,35 +1,45 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
 
-body{
-    background: green;
-}
-.card{
+body {
+    background-color: green;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .card {
     width: 200px;
     height: 300px;
-    border-radius: 25px;
-    margin: 120px auto 0;
-    box-shadow: 2px 4px 10px rgba(0,0,0,0.4);
-    position:relative;
-    font-size:70px;
-    font-weight: 100;
-    text-align: center;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items:center;
-    background:white;
-    
-}
-.num-top{
-    top:10px;
-    left:15px;
-}
-.num-bottom{
-    float: right;
-    bottom:10px;
-
-    transform:rotate(180deg);
-}
-.num-card{
-    font-size:100px ;
-}
+    justify-content: space-between;
+    padding: 15px;
+    position: relative;
+  }
+  
+  .corner {
+    font-size: 30px;
+  }
+  
+  .top {
+    align-self: flex-start;
+  }
+  
+  .bottom {
+    align-self: flex-end;
+    transform: rotate(180deg);
+  }
+  
+  .center {
+    font-size: 100px;
+    text-align: center;
+    line-height: 1;
+  }
+  
